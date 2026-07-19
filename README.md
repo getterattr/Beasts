@@ -1,7 +1,7 @@
 # Beasts
 
 > [!NOTE]
-> Fork of [poplug/Beasts](https://github.com/poplug/Beasts).
+> Fork of [poplug/Beasts](https://github.com/poplug/Beasts) — originally released by PoThePlug on [ownedcore](https://www.ownedcore.com/forums/mmo/path-of-exile/poe-bots-programs/1001716-exileapi-poehelper-poehud-plugin-beasts-easily-find-profitable-beasts.html).
 
 An ExileApi overlay plugin for Path of Exile. Highlights valuable Bestiary beasts as you clear maps.
 
