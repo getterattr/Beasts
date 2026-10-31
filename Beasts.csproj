@@ -16,20 +16,17 @@
     <RepositoryUrl>https://github.com/getterattr/Beasts</RepositoryUrl>
     <PackageProjectUrl>https://github.com/getterattr/Beasts</PackageProjectUrl>
     <DebugType>embedded</DebugType>
+    <ImplicitUsings>disable</ImplicitUsings>
     <PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
     <EmbedAllSources>true</EmbedAllSources>
   </PropertyGroup>
-  <PropertyGroup>
-    <ExApiReferenceRoot Condition="'$(exapiPackage)' != ''">$(exapiPackage)</ExApiReferenceRoot>
-    <ExApiReferenceRoot Condition="'$(ExApiReferenceRoot)' == ''">$(MSBuildProjectDirectory)\..\..\..</ExApiReferenceRoot>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExileCore">
-      <HintPath>$(ExApiReferenceRoot)\ExileCore.dll</HintPath>
+      <HintPath>$(exapiPackage)\ExileCore.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="GameOffsets">
-      <HintPath>$(ExApiReferenceRoot)\GameOffsets.dll</HintPath>
+      <HintPath>$(exapiPackage)\GameOffsets.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -39,4 +36,3 @@
     <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
   </ItemGroup>
 </Project>
-
