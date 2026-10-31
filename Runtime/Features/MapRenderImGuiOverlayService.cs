@@ -19,7 +19,7 @@ internal sealed record MapRenderImGuiOverlayCallbacks(
 
 internal sealed class MapRenderImGuiOverlayService
 {
-    private const string PreviewBeastName = "Craicic Chimeral";
+    private const string PreviewBeastName = "Craicic Croaker";
     private readonly MapRenderImGuiOverlayCallbacks _callbacks;
 
     public MapRenderImGuiOverlayService(MapRenderImGuiOverlayCallbacks callbacks)

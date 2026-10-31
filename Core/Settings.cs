@@ -94,7 +94,7 @@ public class BestiaryClipboardSettings
     public ToggleNode UseAutoRegex { get; set; } = new(true);
 
     [Menu("Manual Regex", "A custom search regex copied to the clipboard when automatic regex generation is turned off. Edit this to match specific beasts by name fragments separated by |.")]
-    public TextNode BeastRegex { get; set; } = new("id v|le m|ld h|s ho|k m|an fi|ul, f|cic c|nd sc|s, f|d bra|l pla|n, f|l cru| cy");
+    public TextNode BeastRegex { get; set; } = new("id v|le m|ld h|s ho|k m|an fi|ul, f|cic c|nd sc|s, f|d bra|l pla|n, f|l cru|l cy");
 }
 
 [Submenu(CollapsedByDefault = true)]

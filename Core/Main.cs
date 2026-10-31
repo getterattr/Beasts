@@ -156,7 +156,7 @@ public partial class Main : BaseSettingsPlugin<Settings>
             if (beastPricesSection["EnabledBeasts"] is JArray enabledBeastsArray)
             {
                 Settings.BeastPrices.EnabledBeasts = new HashSet<string>(
-                    enabledBeastsArray.Values<string>().Where(x => !string.IsNullOrWhiteSpace(x)),
+                    enabledBeastsArray.Values<string>().Where(x => !string.IsNullOrWhiteSpace(x)).Select(BeastData.CurrentName),
                     StringComparer.OrdinalIgnoreCase);
             }
         }

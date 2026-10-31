@@ -143,7 +143,7 @@ public partial class Main
             var beastNamesById = BuildPoeNinjaItemNameById(beastResponse);
             foreach (var line in beastResponse.Lines)
             {
-                var lineName = GetPoeNinjaLineName(line, beastNamesById);
+                var lineName = BeastData.CurrentName(GetPoeNinjaLineName(line, beastNamesById));
                 var chaosValue = GetPoeNinjaLineChaosValue(line);
                 if (string.IsNullOrWhiteSpace(lineName) || chaosValue <= 0)
                 {

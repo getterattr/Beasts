@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Beasts;
 
@@ -7,7 +8,7 @@ internal static class BeastData
     public static readonly TrackedBeast[] AllRedBeasts =
     [
         // Craicic (The Deep)
-        new("Craicic Chimeral",      ["Metadata/Monsters/LeagueBestiary/GemFrogBestiary"],                    "cic c"),
+        new("Craicic Croaker",       ["Metadata/Monsters/LeagueBestiary/GemFrogBestiary"],                    "cic c"),
         new("Craicic Spider Crab",   ["Metadata/Monsters/LeagueBestiary/CrabSpiderBestiary"],                 "c sp"),
         new("Craicic Maw",           ["Metadata/Monsters/LeagueBestiary/FrogBestiary"],                       "cic m"),
         new("Craicic Sand Spitter",  ["Metadata/Monsters/LeagueBestiary/SandSpitterBestiary"],                "c san"),
@@ -21,6 +22,8 @@ internal static class BeastData
         new("Farric Tiger Alpha",         ["Metadata/Monsters/LeagueBestiary/TigerBestiary"],                 "c ti"),
         new("Farric Wolf Alpha",          ["Metadata/Monsters/LeagueBestiary/WolfBestiary"],                  "f a"),
         new("Farric Lynx Alpha",          ["Metadata/Monsters/LeagueBestiary/LynxBestiary"],                  "c l"),
+        // Frost precedes Flame: the Flame pattern also matches HellionBestiary2 via the digit-suffix rule.
+        new("Farric Frost Hellion Alpha", ["Metadata/Monsters/LeagueBestiary/HellionBestiary2"],              "c fr"),
         new("Farric Flame Hellion Alpha", ["Metadata/Monsters/LeagueBestiary/HellionBestiary"],               "c fl"),
         new("Farric Magma Hound",         ["Metadata/Monsters/LeagueBestiary/HoundBestiary"],                 "ma h"),
         new("Farric Pit Hound",           ["Metadata/Monsters/LeagueBestiary/PitbullBestiary"],               "c pi"),
@@ -61,7 +64,7 @@ internal static class BeastData
         new("Wild Bristle Matron",   ["Metadata/Monsters/LeagueHarvest/Red/HarvestBeastT3MemoryLine_", "Metadata/Monsters/LeagueHarvest/Red/HarvestBeastT3"], "le m"),
         new("Wild Hellion Alpha",    ["Metadata/Monsters/LeagueHarvest/Red/HarvestHellionT3MemoryLine", "Metadata/Monsters/LeagueHarvest/Red/HarvestHellionT3"], "ld h"),
         new("Wild Brambleback",      ["Metadata/Monsters/LeagueHarvest/Red/HarvestBrambleHulkT3MemoryLine", "Metadata/Monsters/LeagueHarvest/Red/HarvestBrambleHulkT3"], "d bra"),
-        new("Primal Cystcaller",     ["Metadata/Monsters/LeagueHarvest/Blue/HarvestGoatmanT3MemoryLine", "Metadata/Monsters/LeagueHarvest/Blue/HarvestGoatmanT3"], "cy"),
+        new("Primal Cystcaller",     ["Metadata/Monsters/LeagueHarvest/Blue/HarvestGoatmanT3MemoryLine", "Metadata/Monsters/LeagueHarvest/Blue/HarvestGoatmanT3"], "l cy"),
         new("Primal Rhex Matriarch", ["Metadata/Monsters/LeagueHarvest/Blue/HarvestRhexT3MemoryLine", "Metadata/Monsters/LeagueHarvest/Blue/HarvestRhexT3"], "x ma"),
         new("Primal Crushclaw",      ["Metadata/Monsters/LeagueHarvest/Blue/HarvestNessaCrabT3MemoryLine_", "Metadata/Monsters/LeagueHarvest/Blue/HarvestNessaCrabT3"], "l cru"),
         new("Vivid Vulture",         ["Metadata/Monsters/LeagueHarvest/Green/HarvestVultureParasiteT3MemoryLine", "Metadata/Monsters/LeagueHarvest/Green/HarvestVultureParasiteT3"], "id v"),
@@ -78,11 +81,20 @@ internal static class BeastData
         "Wild Bristle Matron",
         "Wild Hellion Alpha",
         "Wild Brambleback",
-        "Craicic Chimeral",
+        "Craicic Croaker",
         "Fenumal Plagued Arachnid",
         "Vicious Hound",
         "Black Mórrigan",
     ];
+
+    // Former name -> current name. Saved settings and poe.ninja lines may still carry the former name.
+    public static readonly Dictionary<string, string> RenamedBeasts = new(StringComparer.OrdinalIgnoreCase)
+    {
+        ["Craicic Chimeral"] = "Craicic Croaker",
+    };
+
+    public static string CurrentName(string beastName) =>
+        beastName != null && RenamedBeasts.TryGetValue(beastName, out var current) ? current : beastName;
 
     public static string GetBeastFamily(string beastName)
     {
